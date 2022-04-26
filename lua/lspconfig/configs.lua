@@ -1,4 +1,5 @@
 local util = require 'lspconfig.util'
+local deferred = require 'lspconfig.deferred'
 local api, validate, lsp = vim.api, vim.validate, vim.lsp
 local tbl_extend = vim.tbl_extend
 
@@ -49,6 +50,11 @@ function configs.__newindex(t, config_name, config_def)
     end
 
     config = tbl_extend('keep', config, default_config)
+
+    if deferred.should_defer then
+      deferred.defer(config)
+      return
+    end
 
     if util.on_setup then
       pcall(util.on_setup, config)
