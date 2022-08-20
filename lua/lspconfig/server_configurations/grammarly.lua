@@ -13,6 +13,9 @@ return {
     filetypes = { 'markdown' },
     root_dir = util.find_git_ancestor,
     single_file_support = true,
+    init_options = {
+      clientId = "neovim",
+    },
     handlers = {
       ['$/updateDocumentState'] = function()
         return ''
