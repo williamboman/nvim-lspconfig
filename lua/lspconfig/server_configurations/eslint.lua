@@ -84,9 +84,7 @@ return {
       validate = 'on',
       packageManager = 'npm',
       useESLintClass = false,
-      experimental = {
-        useFlatConfig = false,
-      },
+      useFlatConfig = false,
       codeActionOnSave = {
         enable = false,
         mode = 'all',
